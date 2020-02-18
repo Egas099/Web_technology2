@@ -1,0 +1,19 @@
+header li{
+    display: inline-flex;
+    padding:1ch 2em 1ch 2em;
+    list-style-type: none;
+    
+}
+header ul{
+    padding: 1ch;
+    
+}
+header{
+    background-color: beige;
+}
+header li:hover{
+    background-color: rgb(218, 218, 193);
+}
+header a{
+    text-decoration: none;
+}

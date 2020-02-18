@@ -1,0 +1,12 @@
+div{
+    padding: 5%;
+}
+.center_content{
+    margin: 5% 30% 0 30%;
+    width: auto;
+    background: rgb(245, 245, 231); /* Цвет фона */
+    padding: 1em; /* Поля вокруг текста */
+    text-align: center; /* Выравнивание содержимого слоя по левому краю */
+    border: 2px outset rgb(61, 55, 42)  ;
+    display: block;
+}

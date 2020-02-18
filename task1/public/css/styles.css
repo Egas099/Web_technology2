@@ -1,0 +1,12 @@
+td{
+    background:rgb(245, 245, 228);
+}
+table{
+    font-size:120%;
+    padding:5%;
+    background:#F5F5DC;
+    border: 1px solid black;
+}
+#title td{
+    background:#D2B48C;
+}

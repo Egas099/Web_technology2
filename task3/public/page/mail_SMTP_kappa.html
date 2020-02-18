@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Заголовок страницы</title>
+    <meta charset="utf-8">
+    <link href="/public/css/sending_mail_page.css" rel="stylesheet">
+</head>
+
+<body>
+    <form method="POST" action="../app/mail_SMTP_kappa.php">
+        <fieldset>
+            <label >Кому:</label>
+            <input type="text" name="sending_to" required placeholder="email@example.com" autofocus>
+
+            <label>Тема письма:</label>
+            <input type="text" name="sending_subject" required>
+
+            <label>Текст письма:</label>
+            <input type="text" name="sending_message" required>
+
+            <input type="submit" value="Отправить" name="send_mail">
+        </fieldset>
+    </form>
+</body>
+</html>
