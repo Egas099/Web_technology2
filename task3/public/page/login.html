@@ -2,22 +2,19 @@
 <html lang="ru">
 
 <head>
-    <title>Заголовок страницы</title>
+    <title>Авторизация</title>
     <meta charset="utf-8">
     <script src="/public/js/main.js"></script>
     <link href="/public/css/login_page.css" rel="stylesheet">
 </head>
-<form action="">
-    <input type="button" value="Авторизироваться">
-</form>
 <body>
-    <form>
+    <form method="POST">
         <fieldset>
             <legend>Авторизация</legend>
             <label for="">Логин</label>
-            <input type="text">
+            <input type="text" name="login_test">
             <label for="">Пароль</label>
-            <input type="password">
+            <input type="password" name="password_test">
             <input type="submit">
         </fieldset>
     </form>

@@ -1,3 +1,4 @@
 <?php
-    include_once 'app/header.php'
+    // include("app/header.php");
+    include("public/blocks/header.html");
 ?>

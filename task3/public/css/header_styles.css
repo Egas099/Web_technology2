@@ -1,18 +1,27 @@
 header li{
-    display: inline-flex;
-    padding:1ch 2em 1ch 2em;
     list-style-type: none;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+}
+header li a{
+    /* width: 100%;
+    height: 100%; */
+    padding: 3vh 2vw;
 }
 header ul{
-    padding: 1ch;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
 }
 header{
-    background-color: beige;
+    background: rgb(209, 209, 209);
+    margin: 0 0 5vh 0;
 }
 header li:hover{
-    background-color: rgb(218, 218, 193);
+    background: rgb(180, 180, 180);
 }
 header a{
     text-decoration: none;
