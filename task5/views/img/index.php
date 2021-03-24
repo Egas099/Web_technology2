@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = 'Images';
     <h1><?= Html::encode($this->title) ?></h1>
 
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    <?php 
     ?>
     
     <ul class="main_ul">

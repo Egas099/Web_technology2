@@ -53,12 +53,7 @@ class ImgController extends Controller
             ->limit($pagination->limit)
             ->all();
 
-        $searchModel = new ImgSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
             'imgs' => $imgs,
             'pagination' => $pagination,
         ]);
@@ -90,8 +85,7 @@ class ImgController extends Controller
         // Загружаем данные с форм в модель
         if ($modelUploadImg->load(Yii::$app->request->post())) {
             // Получаем экземпляр загруженного файла
-            if ($modelUploadImg->imageFile = UploadedFile::getInstance($modelUploadImg, 'imageFile'))
-            {
+            if ($modelUploadImg->imageFile = UploadedFile::getInstance($modelUploadImg, 'imageFile')) {
                 // Указываем путь к файлу
                 $modelImg->path = $modelUploadImg->upload();
                 // Указываем пользователя, который загрузил изображение
@@ -101,9 +95,9 @@ class ImgController extends Controller
                 // Если загруженны данные с формы и данные из модели сохранена в базе данных
                 if ($modelImg->load(Yii::$app->request->post()) && $modelImg->save()) {
                     return $this->redirect(['index']);
-                // Иначе удаляем сохранённый файл
+                    // Иначе удаляем сохранённый файл
                 } else {
-                    unlink('../web/upload/'.$modelImg->path);
+                    unlink('../web/upload/' . $modelImg->path);
                 }
             }
         }
@@ -127,16 +121,17 @@ class ImgController extends Controller
 
         if ($modelUploadImg->load(Yii::$app->request->post())) {
             // Получаем экземпляр загруженного файла
-            if ($modelUploadImg->imageFile = UploadedFile::getInstance($modelUploadImg, 'imageFile')) 
-            {
-                unlink('../web/upload/'.$this->findModel($id)->path);
+            if ($modelUploadImg->imageFile = UploadedFile::getInstance($modelUploadImg, 'imageFile')) {
+                if (file_exists('../web/upload/' . $this->findModel($id)->path)) {
+                    unlink('../web/upload/' . $this->findModel($id)->path);
+                }
                 $modelImg->path = $modelUploadImg->upload();
                 $modelImg->user_id = Yii::$app->user->identity->id;
 
                 if ($modelImg->load(Yii::$app->request->post()) && $modelImg->save()) {
                     return $this->redirect(['index']);
                 } else {
-                    unlink('../web/upload/'.$modelImg->path);
+                    unlink('../web/upload/' . $modelImg->path);
                 }
             }
         }
@@ -161,9 +156,12 @@ class ImgController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        unlink('../web/upload/'.$model->path);
-        $model->delete();
 
+        if (file_exists('../web/upload/' . $model->path)) {
+            unlink('../web/upload/' . $model->path);
+        }
+
+        $model->delete();
         return $this->redirect(['index']);
     }
 
